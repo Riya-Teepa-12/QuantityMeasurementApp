@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class QuantityMeasurementTest {
+public class FeetMeasurementTesting {
 
     @Test
     public void testEquality_SameValue() {

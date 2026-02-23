@@ -3,102 +3,115 @@ package com.app.quantitymeasurementapp;
 import java.util.Objects;
 
 public class QuantityLength {
-	private final double value;
-	private final LengthUnit unit;
+	// Attribute
+		private final double value;
+		private final LengthUnit unit;
 
-	// Constructor
-	public QuantityLength(double value, LengthUnit unit) {
+		// Constructor
+		public QuantityLength(double value, LengthUnit unit) {
 
-		if (unit == null) {
-			throw new IllegalArgumentException("Unit cannot be null");
+			if (unit == null) {
+				throw new IllegalArgumentException("Unit cannot be null");
+			}
+
+			this.value = value;
+			this.unit = unit;
 		}
 
-		this.value = value;
-		this.unit = unit;
-	}
-
-	// Method to convert the given length to base unit (Inches)
-	private double convertToBaseUnit() {
-		return this.value * unit.getConversionFactor();
-	}
-
-	// Addition method
-	public QuantityLength add(QuantityLength other) {
-
-		if (other == null) {
-			throw new IllegalArgumentException("Second operand cannot be null");
+		// Method to convert the given length to base unit (Inches)
+		private double convertToBaseUnit() {
+			return this.value * unit.getConversionFactor();
 		}
 
-		if (!Double.isFinite(this.value) || !Double.isFinite(other.value)) {
-			throw new IllegalArgumentException("Values must be finite");
+		// Addition method with flexible targetUnit 
+		public QuantityLength add(QuantityLength other, LengthUnit targetUnit) {
+
+			// Checking null operand
+		    if (other == null) {
+		        throw new IllegalArgumentException("Second operand cannot be null");
+		    }
+
+		    // Checking target unit 
+		    if (targetUnit == null) {
+		        throw new IllegalArgumentException("Target unit cannot be null");
+		    }
+
+		    // Checking Finite value 
+		    if (!Double.isFinite(this.value) || !Double.isFinite(other.value)) {
+		        throw new IllegalArgumentException("Values must be finite");
+		    }
+
+		    // Convert both operands to base unit (inches)
+		    double baseValue1 = this.convertToBaseUnit();
+		    double baseValue2 = other.convertToBaseUnit();
+
+		    double sumBase = baseValue1 + baseValue2;
+
+		    // Convert result to explicit target unit
+		    double resultValue = sumBase / targetUnit.getConversionFactor();
+
+		    return new QuantityLength(resultValue, targetUnit);
 		}
 
-		// Converting to base unit
-		double thisBase = this.convertToBaseUnit();
-		double otherBase = other.convertToBaseUnit();
+		// Static method to convert to target type
+		public static double convert(double value, LengthUnit source, LengthUnit target) {
 
-		double sumBase = thisBase + otherBase;
+			// Validation
+			if (source == null || target == null) {
+				throw new IllegalArgumentException("Unit cannot be null");
+			}
 
-		double resultValue = sumBase / this.unit.getConversionFactor();
+			if (!Double.isFinite(value)) {
+				throw new IllegalArgumentException("Value must be finite");
+			}
 
-		// returning result value
-		return new QuantityLength(resultValue, this.unit);
-	}
+			// Normalize to base unit
+			double baseValue = value * source.getConversionFactor();
 
-	// Static method to convert to target type
-	public static double convert(double value, LengthUnit source, LengthUnit target) {
-
-		if (source == null || target == null) {
-			throw new IllegalArgumentException("Unit cannot be null");
+			// Convert to target unit
+			return baseValue / target.getConversionFactor();
 		}
 
-		if (!Double.isFinite(value)) {
-			throw new IllegalArgumentException("Value must be finite");
+		// Instance conversion method
+		public QuantityLength convertTo(LengthUnit target) {
+
+			double convertedValue = convert(this.value, this.unit, target);
+
+			return new QuantityLength(convertedValue, target);
 		}
 
-		// Normalize to base unit
-		double baseValue = value * source.getConversionFactor();
+		// Overriding equals method to compare two QuantityLength objects
+		@Override
+		public boolean equals(Object obj) {
 
-		// Convert to target unit
-		return baseValue / target.getConversionFactor();
-	}
+			// Checking same reference - Reflexive property
+			if (this == obj)
+				return true;
 
-	public QuantityLength convertTo(LengthUnit target) {
+			// Checking null and class type
+			if (obj == null || getClass() != obj.getClass())
+				return false;
 
-		double convertedValue = convert(this.value, this.unit, target);
+			// Type casting
+			QuantityLength other = (QuantityLength) obj;
 
-		return new QuantityLength(convertedValue, target);
-	}
+			// Comparing values after converting to base unit
+			double difference = Math.abs(this.convertToBaseUnit() - other.convertToBaseUnit());
 
-	// Overriding equals method to compare two QuantityLength objects
-	@Override
-	public boolean equals(Object obj) {
+			return difference < 0.0001;
+		}
 
-		// Checking same reference - Reflexive property
-		if (this == obj)
-			return true;
+		// Overriding hashCode method - consistent with equals
+		@Override
+		public int hashCode() {
 
-		if (obj == null || getClass() != obj.getClass())
-			return false;
+			return Objects.hash(Math.round(convertToBaseUnit() * 10000));
+		}
 
-		// Type casting
-		QuantityLength other = (QuantityLength) obj;
+		// Overriding toString method for readable output
+		@Override
+		public String toString() {
+			return "Quantity(" + value + ", " + unit + ")";
+		}
 
-		// Comparing values after converting to base unit
-		double difference = Math.abs(this.convertToBaseUnit() - other.convertToBaseUnit());
-
-		return difference < 0.0001;
-	}
-
-	@Override
-	public int hashCode() {
-
-		return Objects.hash(Math.round(convertToBaseUnit() * 10000));
-	}
-
-	// Overriding toString method for readable output
-	@Override
-	public String toString() {
-		return "Quantity(" + value + ", " + unit + ")";
-	}
 }

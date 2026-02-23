@@ -34,7 +34,12 @@ public class QuantityLength {
 
 			QuantityLength other = (QuantityLength) obj;
 
-			return Double.compare(this.convertToBaseUnit(), other.convertToBaseUnit()) == 0;
+			// Comparing values after converting to base unit
+	        double difference = Math.abs(
+	                this.convertToBaseUnit() - other.convertToBaseUnit()
+	        );
+
+	        return difference < 0.0001;
 		}
 
 		@Override

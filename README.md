@@ -51,14 +51,14 @@ mvn test
 │   ├── 📁 main
 │   │   └── 📁 java
 │   │       └── 📁 com
-│   │           └── 📁 apps
+│   │           └── 📁 app
 │   │               └── 📁 quantitymeasurement
 │   │                     └──📄Feet.java
 │   │                       └──📄 QuantityMeasurementApp.java
 │   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com
-│               └── 📁 apps
+│               └── 📁 app
 │                   └── 📁 quantitymeasurementapp
 │                       └── 📄QuantityMeasurementAppTest
 │

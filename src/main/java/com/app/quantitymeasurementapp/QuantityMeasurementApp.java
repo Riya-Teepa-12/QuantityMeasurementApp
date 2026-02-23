@@ -1,48 +1,50 @@
 package com.app.quantitymeasurementapp;
 
-import java.util.Objects;
+
 
 public class QuantityMeasurementApp {
-	// display utility method
-		private static void displayResult(String operation, Object result) {
-			System.out.println(operation + " : " + result);
+
+
+	// Common display utility method
+	private static void displayResult(String operation, Object result) {
+		System.out.println(operation + " : " + result);
+	}
+
+	// Static conversion demonstration
+	public static double demonstrateLengthConversion(double value, LengthUnit from, LengthUnit to) {
+
+		double result = QuantityLength.convert(value, from, to);
+
+		displayResult("convert(" + value + ", " + from + ", " + to + ")", result);
+
+		return result;
+	}
+
+	// Instance conversion demonstration (Overloaded method)
+	public static QuantityLength demonstrateLengthConversion(QuantityLength length, LengthUnit to) {
+
+		if (length == null) {
+			throw new IllegalArgumentException("Length object cannot be null");
 		}
 
-		// Static conversion demonstration
-		public static double demonstrateLengthConversion(double value, LengthUnit from, LengthUnit to) {
+		QuantityLength result = length.convertTo(to);
 
-			double result = QuantityLength.convert(value, from, to);
+		displayResult(length + " converted to " + to, result);
 
-			displayResult("convert(" + value + ", " + from + ", " + to + ")", result);
+		return result;
+	}
 
-			return result;
-		}
+	public static void main(String[] args) {
 
-		// Instance conversion demonstration (Overloaded method)
-		public static QuantityLength demonstrateLengthConversion(QuantityLength length, LengthUnit to) {
+		// Conversion demonstrations
+		demonstrateLengthConversion(1.0, LengthUnit.FEET, LengthUnit.INCH);
+		demonstrateLengthConversion(3.0, LengthUnit.YARDS, LengthUnit.FEET);
+		demonstrateLengthConversion(36.0, LengthUnit.INCH, LengthUnit.YARDS);
+		demonstrateLengthConversion(1.0, LengthUnit.CENTIMETERS, LengthUnit.INCH);
 
-			if (length == null) {
-				throw new IllegalArgumentException("Length object cannot be null");
-			}
+		// Object-based conversion demo
+		QuantityLength length = new QuantityLength(2.0, LengthUnit.YARDS);
+		demonstrateLengthConversion(length, LengthUnit.FEET);
 
-			QuantityLength result = length.convertTo(to);
-
-			displayResult(length + " converted to " + to, result);
-
-			return result;
-		}
-
-		public static void main(String[] args) {
-
-			// Conversion demonstrations
-			demonstrateLengthConversion(1.0, LengthUnit.FEET, LengthUnit.INCH);
-			demonstrateLengthConversion(3.0, LengthUnit.YARDS, LengthUnit.FEET);
-			demonstrateLengthConversion(36.0, LengthUnit.INCH, LengthUnit.YARDS);
-			demonstrateLengthConversion(1.0, LengthUnit.CENTIMETERS, LengthUnit.INCH);
-
-			// Object-based conversion demo
-			QuantityLength length = new QuantityLength(2.0, LengthUnit.YARDS);
-			demonstrateLengthConversion(length, LengthUnit.FEET);
-
-		}
+	}
 }

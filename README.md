@@ -43,7 +43,12 @@ New features will be documented here as additional Use Cases are completed.
 ### UC6 – Length Addition Operation
 
 - Implements addition of length measurements with automatic unit conversion and normalization  
-- Produces a new immutable `Length` instance in the unit of the first operand while ensuring mathematical correctness  
+- Produces a new immutable `Length` instance in the unit of the first operand while ensuring mathematical correctness
+
+### UC7 – Addition with Target Unit Specification
+
+- Extends length addition by allowing the caller to explicitly choose the unit of the result  
+- Performs automatic normalization and conversion of operands, returning a new immutable `Length` instance in the specified target unit while preserving mathematical accuracy 
 ---
 
 ## 🧰 Tech Stack

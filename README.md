@@ -91,17 +91,22 @@ mvn test
 │   │       └── 📁 com
 │   │           └── 📁 app
 │   │               └── 📁 quantitymeasurementapp
-│   │                     └──📄LengthUnit.java
-│   │                      └──📄QuantityLength.java
-│   └── 📁 test             └──📄QuantityMeasurementApp.java
+│   │                   ├── 📄 IMeasurable.java
+│   │                   ├── 📄 Quantity.java
+│   │                   ├── 📄 LengthUnit.java
+│   │                   ├── 📄 WeightUnit.java
+│   │                   └── 📄 QuantityMeasurementApp.java
+│   │                   
+│   │
+│   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com
 │               └── 📁 app
 │                   └── 📁 quantitymeasurementapp
-│                       └── 📄QuantityMeasurementAppTest.java
-│                        
-|
-|── 📘 README.md
+│                       └── 📄 QuantityMeasurementAppTest.java
+│
+└── 📘 README.md
+
 ```
 ## ⚙️ Development Approach
 

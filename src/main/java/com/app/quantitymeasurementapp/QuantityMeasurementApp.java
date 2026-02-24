@@ -11,7 +11,7 @@ public class QuantityMeasurementApp {
 		}
 
 		// GENERIC DEMONSTRATION METHODS
-		
+
 		// Equality demonstration
 		public static <U extends IMeasurable> boolean demonstrateEquality(Quantity<U> q1, Quantity<U> q2) {
 
@@ -85,6 +85,7 @@ public class QuantityMeasurementApp {
 		public static void main(String[] args) {
 
 			// Length method
+			System.out.println("----------------------------------------------");
 			Quantity<LengthUnit> length1 = new Quantity<>(1.0, LengthUnit.FEET);
 
 			Quantity<LengthUnit> length2 = new Quantity<>(12.0, LengthUnit.INCH);
@@ -95,6 +96,7 @@ public class QuantityMeasurementApp {
 			demonstrateAddition(length1, length2, LengthUnit.FEET);
 
 			// Weight method
+			System.out.println("---------------------------------------------");
 			Quantity<WeightUnit> weight1 = new Quantity<>(1.0, WeightUnit.KILOGRAM);
 
 			Quantity<WeightUnit> weight2 = new Quantity<>(1000.0, WeightUnit.GRAM);
@@ -107,5 +109,26 @@ public class QuantityMeasurementApp {
 			demonstrateAddition(weight1, weight3);
 			demonstrateAddition(weight1, weight3, WeightUnit.GRAM);
 			demonstrateRoundTrip(weight1, WeightUnit.POUND);
+
+			
+			// Volume method 
+			System.out.println("----------------------------------------------");
+			Quantity<VolumeUnit> volume1 = new Quantity<>(1.0, VolumeUnit.LITRE);
+
+			Quantity<VolumeUnit> volume2 = new Quantity<>(1000.0, VolumeUnit.MILLILITRE);
+
+			demonstrateEquality(volume1, volume2);
+			demonstrateConversion(volume1, VolumeUnit.MILLILITRE);
+			demonstrateAddition(volume1, volume2);
+			demonstrateAddition(volume1, volume2, VolumeUnit.LITRE);
+
+			Quantity<VolumeUnit> volume3 = new Quantity<>(1.0, VolumeUnit.GALLON);
+
+			demonstrateConversion(volume3, VolumeUnit.LITRE);
+			demonstrateAddition(volume1, volume3);
+			demonstrateAddition(volume1, volume3, VolumeUnit.MILLILITRE);
+			demonstrateRoundTrip(volume1, VolumeUnit.GALLON);
+			System.out.println("----------------------------------------------");
+
 		}
 }

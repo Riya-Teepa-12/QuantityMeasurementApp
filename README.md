@@ -109,19 +109,23 @@ mvn test
 │   ├── 📁 main
 │   │   └── 📁 java
 │   │       └── 📁 com
-│   │           └── 📁 app
-│   │               └── 📁 quantitymeasurementapp
-│   │                     └──📄LengthUnit.java
-│   │                      └──📄QuantityLength.java
-│   └── 📁 test             └──📄QuantityMeasurementApp.java
+│   │           └── 📁 apps
+│   │               └── 📁 quantitymeasurement
+│   │                   ├── 📄 IMeasurable.java
+│   │                   ├── 📄 LengthUnit.java
+│   │                   ├── 📄 WeightUnit.java
+│   │                   ├── 📄 VolumeUnit.java
+│   │                   ├── 📄 Quantity.java
+│   │                   └── 📄 QuantityMeasurementApp.java
+│   │
+│   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com
-│               └── 📁 app
-│                   └── 📁 quantitymeasurementapp
-│                       └── 📄QuantityMeasurementAppTest.java
-│                        
-|
-|── 📘 README.md
+│               └── 📁 apps
+│                   └── 📁 QuantityMeasurementApp
+│                       └── 📄 QuantityMeasurementAppTest.java
+│
+└── 📘 README.md
 ```
 ## ⚙️ Development Approach
 

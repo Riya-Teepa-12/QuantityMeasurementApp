@@ -89,6 +89,7 @@ New features will be documented here as additional Use Cases are completed.
 - Allows implicit result unit (first operand’s unit) or explicit target unit specification for subtraction  
 - Preserves strict category isolation — operations across different domains (e.g., length vs weight) are prevented  
 - Maintains immutability, validation, and consistent error handling (null checks, finite values, division by zero)  
+
 <<<<<<< HEAD
 - Demonstrates scalability of the generic design by adding new operations without modifying existing architecture  
 
@@ -106,6 +107,15 @@ UC13: Add temperature measurement support with selective arithmetic and IMeasura
 - Updated Quantity<U> to validate operation support before execution  
 - Preserved full arithmetic support for length, weight, and volume units  
 - Ensured strict cross-category type safety and backward compatibility (UC1–UC13)  
+
+### 🌡️ UC14 – Temperature Measurement with Selective Arithmetic Support
+
+- Adds **temperature units (Celsius, Fahrenheit, Kelvin)** with equality and conversion support only  
+- Refactors `IMeasurable` to make arithmetic operations optional via default methods  
+- Uses precise non-linear formulas for accurate cross-unit conversion  
+- Disables arithmetic on absolute temperatures (throws `UnsupportedOperationException`)  
+- Ensures type safety and keeps temperature separate from other measurement categories
+
 <<<<<<< HEAD
 - Added demonstration cases and comprehensive tests for temperature equality, conversion, and error handling  
 =======
@@ -148,8 +158,8 @@ mvn test
 │   │                   ├── 📄 WeightUnit.java
 │   │                   ├── 📄 VolumeUnit.java
 │   │                   ├── 📄 Quantity.java
-│   │                   └── 📄 QuantityMeasurementApp.java
-│   │
+│   │                   └── 📄 VolumeUnit.java
+│   │                   └──📄 QuantityMeasurementApp.java
 │   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com

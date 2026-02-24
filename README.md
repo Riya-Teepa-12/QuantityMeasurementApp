@@ -149,8 +149,7 @@ mvn test
 │   │                   ├── 📄 WeightUnit.java
 │   │                   ├── 📄 VolumeUnit.java
 │   │                   ├── 📄 Quantity.java
-│   │                   └── 📄 Temperature
-Unit.java
+│   │                   └── 📄 TemperatureUnit.java
 │   │                   └──📄 QuantityMeasurementApp.java
 │   └── 📁 test
 │       └── 📁 java

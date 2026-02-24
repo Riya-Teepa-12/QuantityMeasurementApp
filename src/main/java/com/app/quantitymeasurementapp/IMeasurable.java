@@ -1,11 +1,17 @@
 package com.app.quantitymeasurementapp;
 
 public interface IMeasurable {
-	double getConversionFactor();
+	  double convertToBaseUnit(double value);
 
-	double convertToBaseUnit(double value);
+	    double convertFromBaseUnit(double baseValue);
 
-	double convertFromBaseUnit(double baseValue);
+	    // Simple default — returns true for all units except TemperatureUnit (which overrides)
+	    default boolean supportsArithmetic() {
+	        return true;
+	    }
 
-	 String getUnitName();
+	    // No-op by default; TemperatureUnit overrides to throw
+	    default void validateOperationSupport(String operation) {
+	        // allowed — do nothing
+	    }
 }

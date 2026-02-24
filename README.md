@@ -59,6 +59,17 @@ New features will be documented here as additional Use Cases are completed.
 
 - Introduces a new measurement category for weight with units **Kilogram, Gram, and Pound**, supporting equality checks, unit conversion, and addition operations  
 - Mirrors the design patterns used for length measurements, ensuring category type safety, immutability, and scalable architecture while keeping weight and length as independent, non-comparable domains  
+
+### UC10 – Generic Quantity with Interface-Based Multi-Category Support
+
+- Introduces a single, type-safe **generic Quantity<U extends IMeasurable> class** that supports all measurement categories through a common unit interface  
+- Eliminates duplicate category-specific Quantity classes and unit enum logic, ensuring DRY compliance and centralized implementation  
+- Supports equality checks, unit conversion, and addition operations uniformly across categories (length, weight, etc.)  
+- Maintains strict category type safety — quantities from different domains remain non-comparable at compile-time and runtime  
+- Simplifies application design by replacing multiple classes and methods with a unified, reusable architecture  
+- Enables seamless addition of new measurement categories (volume, temperature, time, etc.) by implementing the interface only  
+- Ensures immutability, scalability, and adherence to SOLID principles, especially Single Responsibility and Open-Closed Principles  
+
 ---
 
 ## 🧰 Tech Stack

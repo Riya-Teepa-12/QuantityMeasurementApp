@@ -98,7 +98,7 @@ public class Quantity<U extends IMeasurable> {
 			return new Quantity<>(round(converted), targetUnit);
 		}
 		 
-		// ADD
+		// ADDITION
 		public Quantity<U> add(Quantity<U> other) {
 
 			validateArithmeticOperands(other, null, false);

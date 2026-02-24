@@ -521,7 +521,7 @@ public class QuantityMeasurementAppTest {
 		assertThrows(ArithmeticException.class, () -> a.divide(b));
 	}
 
-	// IMMUTABILITY CHECK
+	// IMMUTABILITY CHECKING
 	 
 	@Test
 	void testAdd_DoesNotModifyOriginalObjects() {

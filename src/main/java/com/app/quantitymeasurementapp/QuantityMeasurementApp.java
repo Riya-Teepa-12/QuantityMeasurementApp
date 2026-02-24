@@ -9,7 +9,7 @@ public class QuantityMeasurementApp {
 		}
 
 		// GENERIC DEMONSTRATION METHODS
-		// Equality demonstration
+		// Equality dEMONSTRATION
 		public static <U extends IMeasurable> boolean demonstrateEquality(Quantity<U> q1, Quantity<U> q2) {
 
 			if (q1 == null || q2 == null) {

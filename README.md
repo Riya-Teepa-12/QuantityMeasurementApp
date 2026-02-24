@@ -78,7 +78,7 @@ New features will be documented here as additional Use Cases are completed.
 - Maintains strict category isolation — volume measurements are independent and non-comparable with length or weight measurements  
 - Requires only a new `VolumeUnit` enum implementing `IMeasurable`; no changes to core classes or application logic  
 - Demonstrates seamless scalability of the UC10 architecture to additional measurement domains  
-- Preserves immutability, type safety, and consistent behavior across all supported categories  
+- Preserves immutability, type safety, and consistent behavior across all supported categories 
 
 ### UC12 – Subtraction and Division Operations on Quantity Measurements
 
@@ -90,6 +90,17 @@ New features will be documented here as additional Use Cases are completed.
 - Preserves strict category isolation — operations across different domains (e.g., length vs weight) are prevented  
 - Maintains immutability, validation, and consistent error handling (null checks, finite values, division by zero)  
 - Demonstrates scalability of the generic design by adding new operations without modifying existing architecture  
+
+UC13: Add temperature measurement support with selective arithmetic and IMeasurable refactoring
+
+- Introduced TemperatureUnit (Celsius, Fahrenheit, Kelvin) with accurate non-linear conversions  
+- Refactored IMeasurable to support optional arithmetic via default methods  
+- Added SupportsArithmetic functional interface with lambda-based capability checks  
+- Disabled arithmetic operations for temperature (add, subtract, divide) with clear exceptions  
+- Updated Quantity<U> to validate operation support before execution  
+- Preserved full arithmetic support for length, weight, and volume units  
+- Ensured strict cross-category type safety and backward compatibility (UC1–UC13)  
+- Added demonstration cases and comprehensive tests for temperature equality, conversion, and error handling  
 ---
 
 ## 🧰 Tech Stack
@@ -120,7 +131,7 @@ mvn test
 │   ├── 📁 main
 │   │   └── 📁 java
 │   │       └── 📁 com
-│   │           └── 📁 app
+│   │           └── 📁 apps
 │   │               └── 📁 quantitymeasurement
 │   │                   ├── 📄 IMeasurable.java
 │   │                   ├── 📄 LengthUnit.java
@@ -132,7 +143,7 @@ mvn test
 │   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com
-│               └── 📁 app
+│               └── 📁 apps
 │                   └── 📁 QuantityMeasurementApp
 │                       └── 📄 QuantityMeasurementAppTest.java
 │

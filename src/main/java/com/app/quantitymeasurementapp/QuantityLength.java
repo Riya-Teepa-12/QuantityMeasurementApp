@@ -117,5 +117,4 @@ public class QuantityLength {
 			return "Quantity(" + value + ", " + unit + ")";
 		}
 
-
 }

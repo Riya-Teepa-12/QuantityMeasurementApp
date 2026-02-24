@@ -89,16 +89,9 @@ New features will be documented here as additional Use Cases are completed.
 - Allows implicit result unit (first operand’s unit) or explicit target unit specification for subtraction  
 - Preserves strict category isolation — operations across different domains (e.g., length vs weight) are prevented  
 - Maintains immutability, validation, and consistent error handling (null checks, finite values, division by zero)  
-<<<<<<< HEAD
 - Demonstrates scalability of the generic design by adding new operations without modifying existing architecture  
 
-UC13: Add temperature measurement support with selective arithmetic and IMeasurable refactoring
-=======
-- Demonstrates scalability of the generic design by adding new operations without modifying existing architecture
-
 ### UC13: Add temperature measurement support with selective arithmetic and IMeasurable refactoring
->>>>>>> 6d8edcc73aac2872288adb44d2ca27ca67aaddde
-
 - Introduced TemperatureUnit (Celsius, Fahrenheit, Kelvin) with accurate non-linear conversions  
 - Refactored IMeasurable to support optional arithmetic via default methods  
 - Added SupportsArithmetic functional interface with lambda-based capability checks  
@@ -106,11 +99,9 @@ UC13: Add temperature measurement support with selective arithmetic and IMeasura
 - Updated Quantity<U> to validate operation support before execution  
 - Preserved full arithmetic support for length, weight, and volume units  
 - Ensured strict cross-category type safety and backward compatibility (UC1–UC13)  
-<<<<<<< HEAD
 - Added demonstration cases and comprehensive tests for temperature equality, conversion, and error handling  
 =======
-- Added demonstration cases and comprehensive tests for temperature equality, conversion, and error handling   
->>>>>>> 6d8edcc73aac2872288adb44d2ca27ca67aaddde
+
 ---
 
 ## 🧰 Tech Stack

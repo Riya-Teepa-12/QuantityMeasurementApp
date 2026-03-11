@@ -144,13 +144,16 @@ mvn test
 │   │       └── 📁 com
 │   │           └── 📁 apps
 │   │               └── 📁 quantitymeasurement
+│   │                   ├── 📄 ArithmeticOperation.java
 │   │                   ├── 📄 IMeasurable.java
 │   │                   ├── 📄 LengthUnit.java
 │   │                   ├── 📄 WeightUnit.java
 │   │                   ├── 📄 VolumeUnit.java
+│   │                   ├── 📄 TemperatureUnit.java
 │   │                   ├── 📄 Quantity.java
-│   │                   └── 📄 TemperatureUnit.java
-│   │                   └──📄 QuantityMeasurementApp.java
+│   │                   ├── 📄 SupportsArithmetic.java
+│   │                   └── 📄 QuantityMeasurementApp.java
+│
 │   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com

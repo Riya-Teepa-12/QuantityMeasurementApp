@@ -110,6 +110,73 @@ New features will be documented here as additional Use Cases are completed.
 - Disables arithmetic on absolute temperatures (throws `UnsupportedOperationException`)  
 - Ensures type safety and keeps temperature separate from other measurement categories
 - Added demonstration cases and comprehensive tests for temperature equality, conversion, and error handling  
+
+
+## UC15 – N-Tier Architecture Refactoring
+
+UC15 refactors the **Quantity Measurement Application** from a monolithic structure into a **professional N-Tier architecture** to improve maintainability, scalability, and separation of concerns.
+
+### Architecture Layers
+
+The application is divided into the following layers:
+```
+Application Layer
+↓
+Controller Layer
+↓
+Service Layer
+↓
+Repository Layer
+↓
+Entity / Model Layer
+
+```
+
+### Layers Description
+
+**Application Layer**
+- Entry point of the application (`QuantityMeasurementApp`)
+- Initializes controller, service, and repository.
+
+**Controller Layer**
+- Handles user requests and delegates operations to the service layer.
+- Implemented by `QuantityMeasurementController`.
+
+**Service Layer**
+- Contains business logic for comparison, conversion, and arithmetic operations.
+- Implemented by `IQuantityMeasurementService` and `QuantityMeasurementServiceImpl`.
+
+**Repository Layer**
+- Handles persistence of measurement operations.
+- Implemented by `IQuantityMeasurementRepository` and `QuantityMeasurementCacheRepository`.
+
+**Entity / Model Layer**
+- Defines data structures used across the application.
+- Includes:
+  - `QuantityDTO`
+  - `QuantityModel`
+  - `QuantityMeasurementEntity`
+
+### Design Principles Used
+
+- **SOLID Principles**
+- **Dependency Injection**
+- **Interface Segregation**
+- **Separation of Concerns**
+
+### Design Patterns Used
+
+- **Singleton Pattern** – Repository
+- **Factory Pattern** – Object creation
+- **Facade Pattern** – Controller interface
+
+### Benefits
+
+- Clear separation of responsibilities
+- Improved testability
+- Better maintainability
+- Ready for REST API integration (Spring Boot)
+- Scalable architecture for future extensions
 =======
 
 ---
@@ -144,13 +211,34 @@ mvn test
 │   │       └── 📁 com
 │   │           └── 📁 apps
 │   │               └── 📁 quantitymeasurement
+│   │
+│   │                   ├── 📁 controller
+│   │                   │   └── 📄 QuantityMeasurementController.java
+│   │                   │
+│   │                   ├── 📁 model
+│   │                   │   ├── 📄 QuantityDTO.java
+│   │                   │   ├── 📄 QuantityModel.java
+│   │                   │   └── 📄 QuantityMeasurementEntity.java
+│   │                   │
+│   │                   ├── 📁 repository
+│   │                   │   ├── 📄 IQuantityMeasurementRepository.java
+│   │                   │   └── 📄 QuantityMeasurementCacheRepository.java
+│   │                   │
+│   │                   ├── 📁 service
+│   │                   │   ├── 📄 IQuantityMeasurementService.java
+│   │                   │   └── 📄 QuantityMeasurementServiceImpl.java
+│   │                   │
+│   │                   ├── 📄 ArithmeticOperation.java
 │   │                   ├── 📄 IMeasurable.java
 │   │                   ├── 📄 LengthUnit.java
 │   │                   ├── 📄 WeightUnit.java
 │   │                   ├── 📄 VolumeUnit.java
+│   │                   ├── 📄 TemperatureUnit.java
 │   │                   ├── 📄 Quantity.java
-│   │                   └── 📄 TemperatureUnit.java
-│   │                   └──📄 QuantityMeasurementApp.java
+│   │                   ├── 📄 QuantityMeasurementException.java
+│   │                   ├── 📄 SupportsArithmetic.java
+│   │                   └── 📄 QuantityMeasurementApp.java
+│
 │   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com

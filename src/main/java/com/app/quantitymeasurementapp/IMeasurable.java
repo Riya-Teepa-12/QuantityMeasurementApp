@@ -1,5 +1,8 @@
 package com.app.quantitymeasurementapp;
 
+
+
+
 public interface IMeasurable {
 
 	double convertToBaseUnit(double value);
@@ -7,6 +10,15 @@ public interface IMeasurable {
 	double convertFromBaseUnit(double baseValue);
 
 	String getUnitName();
+
+	/*
+	 * This is essential for ensuring that comparisons and conversions are only
+	 * performed between compatible types.
+	 */
+	String getMeasurementType();
+
+	// This method is essential for converting QuantityDTO to IMeasurable units.
+	IMeasurable getUnitInstance(String unitName);
 
 	// default lambda → arithmetic supported
 	default boolean supportsArithmetic() {
@@ -17,5 +29,7 @@ public interface IMeasurable {
 	default void validateOperationSupport(String operation) {
 		// default: supported
 	}
+
+	
 
 }

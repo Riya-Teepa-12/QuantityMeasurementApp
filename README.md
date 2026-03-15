@@ -206,44 +206,57 @@ mvn test
 📦 QuantityMeasurementApp
 │
 ├── 📁 src
-│   ├── 📁 main
-│   │   └── 📁 java
-│   │       └── 📁 com
-│   │           └── 📁 apps
-│   │               └── 📁 quantitymeasurement
 │   │
-│   │                   ├── 📁 controller
-│   │                   │   └── 📄 QuantityMeasurementController.java
-│   │                   │
-│   │                   ├── 📁 model
-│   │                   │   ├── 📄 QuantityDTO.java
-│   │                   │   ├── 📄 QuantityModel.java
-│   │                   │   └── 📄 QuantityMeasurementEntity.java
-│   │                   │
-│   │                   ├── 📁 repository
-│   │                   │   ├── 📄 IQuantityMeasurementRepository.java
-│   │                   │   └── 📄 QuantityMeasurementCacheRepository.java
-│   │                   │
-│   │                   ├── 📁 service
-│   │                   │   ├── 📄 IQuantityMeasurementService.java
-│   │                   │   └── 📄 QuantityMeasurementServiceImpl.java
-│   │                   │
-│   │                   ├── 📄 ArithmeticOperation.java
-│   │                   ├── 📄 IMeasurable.java
-│   │                   ├── 📄 LengthUnit.java
-│   │                   ├── 📄 WeightUnit.java
-│   │                   ├── 📄 VolumeUnit.java
-│   │                   ├── 📄 TemperatureUnit.java
-│   │                   ├── 📄 Quantity.java
-│   │                   ├── 📄 QuantityMeasurementException.java
-│   │                   ├── 📄 SupportsArithmetic.java
-│   │                   └── 📄 QuantityMeasurementApp.java
-│
+│   ├── 📁 main
+│   │   │
+│   │   ├── 📁 java
+│   │   │   └── 📁 com
+│   │   │       └── 📁 app
+│   │   │           └── 📁 quantitymeasurement
+│   │   │
+│   │   │               ├── 📁 controller
+│   │   │               │   └── 📄 QuantityMeasurementController.java
+│   │   │               │
+│   │   │               ├── 📁 core
+│   │   │               │   ├── 📄 ArithmeticOperation.java
+│   │   │               │   └── 📄 SupportsArithmetic.java
+│   │   │               │
+│   │   │               ├── 📁 entity
+│   │   │               │   ├── 📄 QuantityDTO.java
+│   │   │               │   ├── 📄 QuantityModel.java
+│   │   │               │   └── 📄 QuantityMeasurementEntity.java
+│   │   │               │
+│   │   │               ├── 📁 exception
+│   │   │               │   └── 📄 QuantityMeasurementException.java
+│   │   │               │
+│   │   │               ├── 📁 repository
+│   │   │               │   ├── 📄 H2ConnectionManager.java
+│   │   │               │   ├── 📄 IQuantityMeasurementRepository.java
+│   │   │               │   └── 📄 QuantityMeasurementH2Repository.java
+│   │   │               │
+│   │   │               ├── 📁 service
+│   │   │               │   ├── 📄 IQuantityMeasurementService.java
+│   │   │               │   └── 📄 QuantityMeasurementServiceImpl.java
+│   │   │               │
+│   │   │               ├── 📁 unit
+│   │   │               │   ├── 📄 IMeasurable.java
+│   │   │               │   ├── 📄 LengthUnit.java
+│   │   │               │   ├── 📄 WeightUnit.java
+│   │   │               │   ├── 📄 VolumeUnit.java
+│   │   │               │   ├── 📄 TemperatureUnit.java
+│   │   │               │   └── 📄 Quantity.java
+│   │   │               │
+│   │   │               └── 📄 QuantityMeasurementApp.java
+│   │
+│   │
+│   ├── 📁 resources
+│   │   └── 📄 schema.sql
+│   │
 │   └── 📁 test
 │       └── 📁 java
 │           └── 📁 com
-│               └── 📁 apps
-│                   └── 📁 QuantityMeasurementApp
+│               └── 📁 app
+│                   └── 📁 quantitymeasurement
 │                       └── 📄 QuantityMeasurementAppTest.java
 │
 └── 📘 README.md

@@ -1,17 +1,24 @@
 package com.app.quantitymeasurementapp;
 
+import java.sql.SQLException;
+
 import com.app.quantitymeasurementapp.controller.QuantityMeasurementController;
+import com.app.quantitymeasurementapp.entity.QuantityDTO;
+import com.app.quantitymeasurementapp.repository.H2ConnectionManager;
 import com.app.quantitymeasurementapp.repository.IQuantityMeasurementRepository;
-import com.app.quantitymeasurementapp.repository.QuantityMeasurementCacheRepository;
+import com.app.quantitymeasurementapp.repository.QuantityMeasurementH2Repository;
 import com.app.quantitymeasurementapp.service.IQuantityMeasurementService;
 import com.app.quantitymeasurementapp.service.QuantityMeasurementServiceImpl;
 
 public class QuantityMeasurementApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 
 		// ── 1. Initialize Repository (Singleton) ─────────────────────────────
-		IQuantityMeasurementRepository repository = QuantityMeasurementCacheRepository.getInstance();
+		// IQuantityMeasurementRepository repository =
+		// QuantityMeasurementCacheRepository.getInstance();
+
+		IQuantityMeasurementRepository repository = QuantityMeasurementH2Repository.getInstance();
 
 		// ── 2. Initialize Service with injected Repository (Factory + DI) ────
 		IQuantityMeasurementService service = new QuantityMeasurementServiceImpl(repository);

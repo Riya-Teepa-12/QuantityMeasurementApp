@@ -1,4 +1,4 @@
-package com.app.quantitymeasurementapp;
+package com.app.quantitymeasurementapp.exception;
 
 public class QuantityMeasurementException extends RuntimeException {
 

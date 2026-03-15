@@ -1,7 +1,4 @@
-package com.app.quantitymeasurementapp;
-
-
-
+package com.app.quantitymeasurementapp.unit;
 
 public interface IMeasurable {
 
@@ -29,7 +26,5 @@ public interface IMeasurable {
 	default void validateOperationSupport(String operation) {
 		// default: supported
 	}
-
-	
 
 }

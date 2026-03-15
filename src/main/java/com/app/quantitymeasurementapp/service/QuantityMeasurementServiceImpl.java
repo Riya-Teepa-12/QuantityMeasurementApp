@@ -1,12 +1,12 @@
 package com.app.quantitymeasurementapp.service;
 
-import com.app.quantitymeasurementapp.IMeasurable;
-import com.app.quantitymeasurementapp.Quantity;
-import com.app.quantitymeasurementapp.QuantityDTO;
-import com.app.quantitymeasurementapp.QuantityMeasurementException;
-import com.app.quantitymeasurementapp.model.QuantityMeasurementEntity;
-import com.app.quantitymeasurementapp.model.QuantityModel;
+import com.app.quantitymeasurementapp.entity.QuantityDTO;
+import com.app.quantitymeasurementapp.entity.QuantityMeasurementEntity;
+import com.app.quantitymeasurementapp.entity.QuantityModel;
+import com.app.quantitymeasurementapp.exception.QuantityMeasurementException;
 import com.app.quantitymeasurementapp.repository.IQuantityMeasurementRepository;
+import com.app.quantitymeasurementapp.unit.IMeasurable;
+import com.app.quantitymeasurementapp.unit.Quantity;
 
 public class QuantityMeasurementServiceImpl implements IQuantityMeasurementService {
 
@@ -252,13 +252,13 @@ public class QuantityMeasurementServiceImpl implements IQuantityMeasurementServi
 	private IMeasurable resolveUnit(String measurementType, String unitName) {
 		switch (measurementType) {
 		case "LengthUnit":
-			return com.app.quantitymeasurementapp.LengthUnit.INCH.getUnitInstance(unitName);
+			return com.app.quantitymeasurementapp.unit.LengthUnit.INCH.getUnitInstance(unitName);
 		case "WeightUnit":
-			return com.app.quantitymeasurementapp.WeightUnit.GRAM.getUnitInstance(unitName);
+			return com.app.quantitymeasurementapp.unit.WeightUnit.GRAM.getUnitInstance(unitName);
 		case "VolumeUnit":
-			return com.app.quantitymeasurementapp.VolumeUnit.LITRE.getUnitInstance(unitName);
+			return com.app.quantitymeasurementapp.unit.VolumeUnit.LITRE.getUnitInstance(unitName);
 		case "TemperatureUnit":
-			return com.app.quantitymeasurementapp.TemperatureUnit.CELSIUS.getUnitInstance(unitName);
+			return com.app.quantitymeasurementapp.unit.TemperatureUnit.CELSIUS.getUnitInstance(unitName);
 		default:
 			throw new QuantityMeasurementException("Unknown measurement type: " + measurementType);
 		}

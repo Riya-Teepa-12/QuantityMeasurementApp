@@ -1,4 +1,4 @@
-package com.app.quantitymeasurementapp;
+package com.app.quantitymeasurementapp.unit;
 
 import java.util.Objects;
 
@@ -73,7 +73,7 @@ public class Quantity<U extends IMeasurable> {
 			throw new IllegalArgumentException("Target unit cannot be null");
 	}
 
-	// 🔥 UC14: Validate arithmetic support before execution
+	//  UC14: Validate arithmetic support before execution
 	private void validateOperationSupport(ArithmeticOperation operation) {
 		unit.validateOperationSupport(operation.name());
 	}

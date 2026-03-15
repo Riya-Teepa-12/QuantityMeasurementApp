@@ -1,6 +1,6 @@
 package com.app.quantitymeasurementapp.repository;
 
-import com.app.quantitymeasurementapp.model.QuantityMeasurementEntity;
+import com.app.quantitymeasurementapp.entity.QuantityMeasurementEntity;
 
 public interface IQuantityMeasurementRepository {
 

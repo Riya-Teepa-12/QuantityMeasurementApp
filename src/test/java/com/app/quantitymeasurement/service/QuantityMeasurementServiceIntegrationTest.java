@@ -1,9 +1,9 @@
 package com.app.quantitymeasurement.service;
 
 import com.app.quantitymeasurement.exception.QuantityMeasurementException;
-import com.app.quantitymeasurement.model.QuantityDTO;
-import com.app.quantitymeasurement.model.QuantityMeasurementDTO;
-import com.app.quantitymeasurement.model.QuantityMeasurementEntity;
+import com.app.quantitymeasurement.dto.QuantityDTO;
+import com.app.quantitymeasurement.dto.QuantityMeasurementDTO;
+import com.app.quantitymeasurement.entity.QuantityMeasurementEntity;
 import com.app.quantitymeasurement.repository.QuantityMeasurementRepository;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -36,6 +36,9 @@ import static org.mockito.Mockito.*;
  * - End-to-end integration flows (all ops in sequence)
  * - Repository tracking: every operation is saved
  * - Scalability: existing ops produce same results after full suite run
+ *
+ * @author Abhishek Puri Goswami
+ * @version 17.0
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)

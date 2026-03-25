@@ -91,7 +91,7 @@ public class IMeasurableTest {
     // =========================================================================
     // SupportsArithmetic — arithmetic vs non-arithmetic units
     // =========================================================================
-
+    
     @Test
     public void testSupportsArithmetic_LengthUnit_IsSupported() {
         assertTrue(LengthUnit.FEET   instanceof SupportsArithmetic);

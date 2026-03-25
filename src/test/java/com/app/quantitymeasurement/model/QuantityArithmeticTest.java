@@ -20,7 +20,10 @@ public class QuantityArithmeticTest {
 
     private static final double EPSILON = 1e-6;
 
-    
+    // =========================================================================
+    // ADDITION — implicit target (result in first operand's unit)
+    // =========================================================================
+
     @Test
     public void testAdd_SameUnit_FeetPlusFeet() {
         assertEquals(
@@ -237,7 +240,9 @@ public class QuantityArithmeticTest {
         );
     }
 
+    // =========================================================================
     // SUBTRACTION — implicit target
+    // =========================================================================
 
     @Test
     public void testSubtract_SameUnit_FeetMinusFeet() {
@@ -345,7 +350,9 @@ public class QuantityArithmeticTest {
         );
     }
 
+    // =========================================================================
     // SUBTRACTION — explicit target unit
+    // =========================================================================
 
     @Test
     public void testSubtract_ExplicitTarget_Feet() {
@@ -371,7 +378,9 @@ public class QuantityArithmeticTest {
         );
     }
 
+    // =========================================================================
     // DIVISION
+    // =========================================================================
 
     @Test
     public void testDivide_SameUnit_Feet() {
@@ -439,7 +448,9 @@ public class QuantityArithmeticTest {
             new Quantity<>(10.0, LengthUnit.FEET).divide(new Quantity<>(3.0, LengthUnit.FEET)), 1e-12);
     }
 
+    // =========================================================================
     // IMMUTABILITY — all operations return new objects, original unchanged
+    // =========================================================================
 
     @Test
     public void testImmutability_Add_OriginalUnchanged() {
@@ -472,7 +483,9 @@ public class QuantityArithmeticTest {
         assertEquals(a, a.add(b).subtract(b));
     }
 
+    // =========================================================================
     // VALIDATION — null, cross-category, null target unit
+    // =========================================================================
 
     @Test
     public void testAdd_NullOperand_Throws() {
@@ -537,7 +550,9 @@ public class QuantityArithmeticTest {
         assertThrows(IllegalArgumentException.class, () -> a.subtract(b, null));
     }
 
+    // =========================================================================
     // TEMPERATURE — arithmetic must be rejected
+    // =========================================================================
 
     @Test
     public void testTemperature_Add_Throws() {
@@ -569,7 +584,9 @@ public class QuantityArithmeticTest {
         assertThrows(UnsupportedOperationException.class, () -> a.add(b));
     }
 
+    // =========================================================================
     // CHAINING & PERFORMANCE
+    // =========================================================================
 
     @Test
     public void testChain_AddSubtractDivide() {
@@ -624,7 +641,9 @@ public class QuantityArithmeticTest {
         assertEquals(1, set.size());
     }
 
+    // =========================================================================
     // INTERNAL STRUCTURE — ArithmeticOperation enum and helper visibility
+    // =========================================================================
 
     @Test
     public void testArithmeticOperation_Enum_AllConstantsPresent() throws Exception {
@@ -726,7 +745,10 @@ public class QuantityArithmeticTest {
         assertEquals(sumInches, sumFeet.convertTo(LengthUnit.INCHES));
     }
 
-   
+    // -------------------------------------------------------------------------
+    // Helper
+    // -------------------------------------------------------------------------
+
     private static Class<?> findInnerEnum(Class<?> outer, String enumName) {
         for (Class<?> c : outer.getDeclaredClasses()) {
             if (c.isEnum() && c.getSimpleName().equals(enumName)) return c;

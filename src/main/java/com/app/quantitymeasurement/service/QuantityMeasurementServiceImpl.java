@@ -8,20 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.quantitymeasurement.exception.QuantityMeasurementException;
-import com.app.quantitymeasurement.model.QuantityDTO;
-import com.app.quantitymeasurement.model.QuantityMeasurementDTO;
-import com.app.quantitymeasurement.model.QuantityMeasurementEntity;
+import com.app.quantitymeasurement.dto.QuantityDTO;
+import com.app.quantitymeasurement.dto.QuantityMeasurementDTO;
+import com.app.quantitymeasurement.entity.QuantityMeasurementEntity;
 import com.app.quantitymeasurement.model.QuantityModel;
 import com.app.quantitymeasurement.repository.QuantityMeasurementRepository;
 import com.app.quantitymeasurement.unit.IMeasurable;
 
-/**
- * QuantityMeasurementServiceImpl
- *
- * Service layer implementation for all quantity measurement business operations.
- * Registered as a Spring bean via {@code @Service}; the {@link QuantityMeasurementRepository}
- * is injected by Spring through {@code @Autowired} field injection.
- */
+
 @Service
 public class QuantityMeasurementServiceImpl implements IQuantityMeasurementService {
 

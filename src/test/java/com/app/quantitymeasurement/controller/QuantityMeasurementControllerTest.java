@@ -1,15 +1,18 @@
 package com.app.quantitymeasurement.controller;
 
+
 import com.app.quantitymeasurement.config.SecurityConfig;
 import com.app.quantitymeasurement.dto.QuantityDTO;
 import com.app.quantitymeasurement.dto.QuantityInputDTO;
 import com.app.quantitymeasurement.dto.QuantityMeasurementDTO;
+import com.app.quantitymeasurement.security.JwtUtil;
 import com.app.quantitymeasurement.service.IQuantityMeasurementService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -23,7 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(QuantityMeasurementController.class)
-@org.springframework.context.annotation.Import(SecurityConfig.class)
+//@org.springframework.context.annotation.Import(SecurityConfig.class)
+@AutoConfigureMockMvc(addFilters = false)
 public class QuantityMeasurementControllerTest {
 
     private static final double EPSILON = 1e-6;
@@ -31,7 +35,8 @@ public class QuantityMeasurementControllerTest {
     @Autowired private MockMvc mockMvc;
     @Autowired private ObjectMapper objectMapper;
     @MockBean  private IQuantityMeasurementService quantityMeasurementService;
-
+    @MockBean
+    private JwtUtil jwtUtil; 
     private QuantityDTO twoFeet, twentyFourInches, zeroYards;
     private QuantityMeasurementDTO equalResult, notEqualResult;
 

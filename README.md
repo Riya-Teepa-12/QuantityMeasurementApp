@@ -108,7 +108,8 @@
   - Demonstrates transition to modern enterprise architecture.
 
 
-  ## 🧩 **UC18 – Google Authentication and User Management** : ← NEW (UC18)
+-
+🧩 **UC18 – Google Authentication and User Management** : ← NEW (UC18)
 
 - Introduces **secure authentication and user management** using modern industry standards.
 - Integrates **OAuth 2.0 with Google Sign-In** for seamless and trusted user authentication.

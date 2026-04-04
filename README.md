@@ -107,6 +107,40 @@
   - Includes comprehensive testing (controller, service, repository, integration).
   - Demonstrates transition to modern enterprise architecture.
 
+
+  ## 🧩 **UC18 – Google Authentication and User Management** : ← NEW (UC18)
+
+- Introduces **secure authentication and user management** using modern industry standards.
+- Integrates **OAuth 2.0 with Google Sign-In** for seamless and trusted user authentication.
+- Implements **JWT (JSON Web Token)** based authentication for stateless session management.
+- Configures **Spring Security** for securing REST APIs and controlling access.
+- Adds login and registration flows using external identity providers (Google).
+- Generates and validates JWT tokens for authenticated users.
+- Secures endpoints using **role-based authorization (RBAC)**.
+- Introduces **User Entity, Repository, and Service layers** for managing user data.
+- Stores authenticated user details (email, name, provider) in the database.
+- Handles authentication success and failure scenarios with proper responses.
+- Implements **custom authentication filters** for JWT validation.
+- Ensures password-less authentication flow using OAuth providers.
+- Supports token expiration, refresh strategy, and secure token handling.
+- Enables **cross-origin authentication support (CORS configuration)**.
+- Maintains separation of concerns between security, business logic, and controllers.
+- Provides scalable authentication design for future providers (Facebook, GitHub, etc.).
+- Includes unit and integration testing for authentication flows.
+
+### 🔐 Key Concepts Covered
+
+- **Spring Security Core**
+- **JWT (JSON Web Token) Authentication**
+- **OAuth 2.0 (Google Authentication)**
+- **Authentication & Authorization**
+- **Role-Based Access Control (RBAC)**
+- **Stateless Security Architecture**
+- **Security Filters & Configuration**
+- **User Management & Persistence**
+- **Token Lifecycle Management**
+- **CORS & API Security Best Practices**
+
 ### 🧰 Tech Stack
 
 - **Java 17+** — primary programming language  
